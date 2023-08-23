@@ -121,7 +121,7 @@ async def on_message(message):
             embedVar = discord.Embed(
                 title="About Polly", colour=0x336EFF
             )
-            embedVar.add_field(name="Version", value="Build 2", inline=True)
+            embedVar.add_field(name="Version", value="Polly Acacia (v.1.1)", inline=True)
             embedVar.add_field(name="Developer", value="@limeadetv", inline=True)
             embedVar.add_field(name="Website", value="http://www.bitbop.us/", inline=True)
             await message.channel.send(embed=embedVar)
