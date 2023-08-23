@@ -29,7 +29,7 @@ global chat_log
 chat_log = []
 
 #settings
-temp = 0.5
+temp = 0
 model = "gpt-4"
 
 #commands
