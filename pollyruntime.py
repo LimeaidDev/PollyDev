@@ -79,17 +79,27 @@ chat_log.append(sys_message)
 @client.event
 async def on_message(message):
     global allowed_channels
-    if message.content.startswith("p!settingshelp"):
-        if message.author.bot:
-            return
-        else:
-            embedVar = discord.Embed(
-                title="About Polly", colour=0x336EFF
-            )
-            embedVar.add_field(name="Version", value="Build 2", inline=True)
-            embedVar.add_field(name="Developer", value="@limeadetv", inline=True)
-            embedVar.add_field(name="Website", value="http://www.bitbop.us/", inline=True)
-            await message.channel.send(embed=embedVar)
+    if message.content.startswith("p!complete"):
+        async with message.channel.typing():
+            if message.author.bot:
+                return
+            else:
+                value = message.content
+                command, sentence = value.split(" ", 1)
+                model, prompt = sentence.split(" / ", 1)
+                response = await openai.Completion.acreate(
+                    model=model,
+                    prompt=prompt,
+                    temperature=1,
+                    max_tokens=256
+                )
+                assisstant_response = response['choices'][0]['text']
+                await message.channel.send(f"**{prompt}**{assisstant_response}", reference=message)
+                embedVar = discord.Embed(
+                    title="Polly BETA", color=0x336EFF
+                )
+                embedVar.add_field(name="This is still in beta", value=f"This feature may not function as intended at times. Functionality may change.", inline=True)
+                await message.channel.send(embed=embedVar)
     if message.content.startswith("p!vitals") and specs == True:
         if message.author.bot:
             return
