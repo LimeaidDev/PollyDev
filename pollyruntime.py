@@ -86,9 +86,9 @@ async def on_message(message):
             else:
                 value = message.content
                 command, sentence = value.split(" ", 1)
-                model, prompt = sentence.split(" / ", 1)
+                compmodel, prompt = sentence.split(" / ", 1)
                 response = await openai.Completion.acreate(
-                    model=model,
+                    model=compmodel,
                     prompt=prompt,
                     temperature=1,
                     max_tokens=256
