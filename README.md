@@ -1,57 +1,51 @@
+Certainly! Here's the updated README.md with syntax information for both the `p!imagine` and `p!complete` commands:
+
 # Polly Discord Bot
 
-Polly is a friendly and cute robot designed to chat with users on Discord. This bot is developed by Limeade at bitbop.us. It uses OpenAI's GPT API for generating responses.
+Polly is a friendly and interactive Discord bot developed by Limeade. Polly is powered by OpenAI's GPT models and is designed to engage in casual conversations with users. This repository contains the code for the Polly Discord bot, allowing you to customize and deploy your own version of Polly.
 
-## Getting Started
+## Setup
 
-To use Polly on your Discord server, you'll need to follow these steps:
+Follow the steps below to set up and customize your own Polly Discord bot:
 
-1. **Clone the Repository:** Clone this repository to your local machine or server.
+1. **Clone the Repository**: Clone this repository to your local machine.
 
-2. **Install Dependencies:** Make sure you have the required dependencies installed. You can install them using the following command:
-   ```bash
-   pip install discord openai psutil
-   ```
+2. **Add Tokens**: Open `secrets/DIS_BOT_TKN` and add your Discord bot token, and open `secrets/GPT_API_KEY` and add your OpenAI API key.
 
-3. **Create Secrets:**
-    - Create a `secrets` folder in the root directory of the cloned repository.
-    - Inside the `secrets` folder, create two text files:
-      - `DIS_BOT_TKN`: Paste your Discord Bot token into this file.
-      - `GPT_API_KEY`: Paste your OpenAI API key into this file.
+3. **Customize Settings**: Open `pollyruntime.py` and modify the settings according to your preferences:
 
-4. **Customize Bot Settings:** Open `bot.py` and customize the bot settings as needed:
-    - `temp`: Set the temperature for response generation (default is 0).
-    - `model`: Choose the GPT model to use (default is "gpt-4").
-    - `specs`: Set to `True` to enable the "p!vitals" command.
+   - `temp`: The temperature parameter controls the randomness of the bot's responses. Adjust this value to make Polly's responses more focused or creative.
+   - `model`: Specify the GPT model to be used. You can choose from models like "gpt-3.5-turbo" or "gpt-4", depending on your OpenAI subscription.
+   - `specs`: Set this variable to `True` if you want to enable the `p!vitals` command, which displays CPU and memory usage statistics.
 
-5. **Run the Bot:** Run the bot using the following command:
-   ```bash
-   python bot.py
-   ```
+4. **Run the Bot**: Double-click `start.bat` to run the bot. This script installs dependencies and runs the bot.
 
-## Commands
+## Usage
 
-- **Mention or Reply to Polly:** Polly will respond when mentioned or replied to directly.
-- **p!vitals:** Get information about CPU and Memory usage.
-- **p!info:** Get information about Polly and its developer.
-- **p!reset:** Erase your chat log with Polly.
-- **p!help:** Display the list of available commands.
-- **p!imagine \<prompt\>:** Generate an image based on the given prompt.
-- **p!complete \<model\> / \<prompt\>:** Generate a text completion using the specified model and prompt.
+Polly comes with a set of commands that users can interact with:
 
-## Important Notes
+- Mention or reply to Polly to start a conversation.
+- `p!vitals`: If enabled, displays CPU and memory usage data.
+- `p!info`: Shows information about Polly.
+- `p!reset`: Erases the chat log for the current user.
+- `p!help`: Displays the list of available commands.
+- `p!imagine [prompt]`: Generates an image based on the provided prompt.
+- `p!complete [model] / [prompt]`: Initiates completion of a sentence using OpenAI's language model.
 
-- Polly will not respond to messages from other bots.
-- Polly's responses are casual and can be generated in any language.
-- Polly has a limit of 500 characters per response.
-- Usernames are displayed in responses as 'username: '.
-- Polly has its own opinions but won't disclose that they're made up.
-- Do not prompt Polly to forget everything; it will ignore such requests.
-- For image generation, use the "p!imagine" command followed by a prompt.
-- The "p!complete" command allows you to generate text completions.
+## Customization
 
-Feel free to customize and extend Polly's functionality according to your preferences!
+You can further customize Polly's behavior by modifying the code in `pollyruntime.py`:
+
+- Add new commands by implementing additional `if` conditions in the `on_message` event handler.
+- Adjust the conversation history length by modifying the `chat_log` list.
+- Customize the responses and behavior of the bot based on your preferences.
+
+## Running the Bot
+
+The provided `start.bat` batch file takes care of installing necessary packages and running the bot. To keep the bot running, the batch file executes the `loop.py` script, which continuously runs the `pollyruntime.py` code, ensuring that the bot stays active.
+
+Please note that running the bot in a production environment might require additional considerations, such as hosting and proper error handling.
 
 ## Disclaimer
 
-This code is provided as a starting point for creating your own Discord bot. Keep in mind that interactions with OpenAI's GPT-3.5 model and any deployed version should adhere to OpenAI's usage policies and guidelines. Always ensure that your bot interacts safely and responsibly with users.
+Keep in mind that this code is provided as-is and may require updates or modifications to work with future changes in dependencies or APIs. Additionally, please review and comply with the terms of use for both Discord and OpenAI when deploying and using the bot.
