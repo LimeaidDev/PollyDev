@@ -1,5 +1,3 @@
-Certainly! Here's the updated README.md with syntax information for both the `p!imagine` and `p!complete` commands:
-
 # Polly Discord Bot
 
 Polly is a friendly and interactive Discord bot developed by Limeade. Polly is powered by OpenAI's GPT models and is designed to engage in casual conversations with users. This repository contains the code for the Polly Discord bot, allowing you to customize and deploy your own version of Polly.
