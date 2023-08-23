@@ -1,5 +1,3 @@
-I apologize for the oversight. Here's the updated README.md with the missing information about the `p!complete` command:
-
 # Polly Discord Bot
 
 Polly is a friendly and cute robot designed to chat with users on Discord. This bot is developed by Limeade at bitbop.us. It uses OpenAI's GPT API for generating responses.
