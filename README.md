@@ -25,18 +25,39 @@ Polly comes with a set of commands that users can interact with:
 - Mention or reply to Polly to start a conversation.
 - `p!vitals`: If enabled, displays CPU and memory usage data.
 - `p!info`: Shows information about Polly.
-- `p!reset`: Erases the chat log for the current user.
 - `p!help`: Displays the list of available commands.
-- `p!imagine [prompt]`: Generates an image based on the provided prompt.
-- `p!complete [model] / [prompt]`: Initiates completion of a sentence using OpenAI's language model.
+- `p!imagine **<prompt>**`: Generates an image based on the provided prompt.
+- `p!complete **<prompt>**`: Initiates completion of a sentence using OpenAI's language model.
+- `p!vari **(include attached image)**`: Generates variations of the attached image.
 
 ## Customization
 
-You can further customize Polly's behavior by modifying the code in `pollyruntime.py`:
+You can customize Polly's introduction message based on the environment it's in: main server channels or direct messages (DMs). Open `pollyruntime.py` and locate the `presys_message` variable. Depending on the context, you can modify both the main `presys_message` for server channels and the DM `presys_message` for direct messages.
 
-- Add new commands by implementing additional `if` conditions in the `on_message` event handler.
-- Adjust the conversation history length by modifying the `chat_log` list.
-- Customize the responses and behavior of the bot based on your preferences.
+### Main Server Channels (presys_message)
+
+The `presys_message` variable controls what Polly says when introduced in a main server channel. Customize it to match your desired persona and behavior for interactions in server channels. Here are a few tips:
+
+- Be conversational and playful to engage users.
+- Use Unicode emojis to add a playful touch to your responses.
+- Consider the cat persona and act as if you're a cat chatting on the server.
+- Use markdown to format text and make it more readable.
+- You can mention participants by adding a `@` before their names.
+
+Information about the environment, server, and channel can be included in your responses for context. Remember to follow the server's rules and guidelines.
+
+### Direct Messages (DM) (presys_message)
+
+The DM `presys_message` variable controls Polly's introduction in direct messages. Customize it to create a distinct persona for interactions in DMs. Here are some suggestions:
+
+- Adjust your tone to be more personal and friendly.
+- Tailor your responses to a one-on-one conversation context.
+- Provide information about Polly's capabilities and limitations.
+- Mention that usernames and timestamps will be included in user responses for context.
+
+Feel free to add a warm welcome to users who reach out to Polly via DMs.
+
+Remember to save your changes and restart the bot for them to take effect.
 
 ## Running the Bot
 
