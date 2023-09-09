@@ -1,0 +1,1 @@
+CreateObject("Wscript.Shell").Run "polly.bat",0,True
