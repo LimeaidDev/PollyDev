@@ -1,0 +1,1 @@
+CreateObject("Wscript.Shell").Run "python ui.py",0,True
